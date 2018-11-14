@@ -1,0 +1,45 @@
+html, body {
+    // box model
+    width: 100%;
+}
+
+html {
+    // box model
+    box-sizing: border-box;
+    
+    // typography
+    font-size: $baseFontSize;
+
+    @include atMinMobile {
+        font-size: $fontForSmallMobile;
+    }
+
+    // visual
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body.main-vis {
+    // positioning
+    position: relative;
+    
+    // box model
+    min-width: 320px;
+    margin: 0;
+
+    // visual
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: $baseColor;
+
+    &--index {
+        background-color: $brandColor;
+    }
+}
+
+*,
+*::before,
+*::after{
+    // box model
+    box-sizing: inherit;
+}
