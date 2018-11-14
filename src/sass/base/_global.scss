@@ -31,7 +31,8 @@ body.main-vis {
     overflow-x: hidden;
     overflow-y: auto;
     background-color: $baseColor;
-
+    color: #000000;
+    
     &--index {
         background-color: $brandColor;
     }

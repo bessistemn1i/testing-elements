@@ -5,14 +5,16 @@ const browserSync = require("browser-sync").create();
 const dirs = {
     pug: "./src/**/*.pug",
     sass: "./src/sass/**/*.scss",
-    js: "./src/js/**/*.js"
+    js: "./src/js/**/*.js",
+    wp_php: "./wp/*.php",
+    wp_css: "./dist/styles.css",
+    wp_js: "./dist/*.js"
 }
 
 gulp.task("watch", ()=> {
     browserSync.init({
         server: {
-            baseDir: "dist",
-            port: 3002
+            baseDir: "dist"
         }
     });
 
@@ -29,6 +31,23 @@ gulp.task("watch", ()=> {
     // js
     watch(dirs.js, () => {
         gulp.start("jsChanged");
+    });
+
+    // wordpress
+
+    //php
+    watch(dirs.wp_php, () => {
+        gulp.start("copyPHP");
+    });
+
+    //css
+    watch(dirs.wp_css, () => {
+        gulp.start("copyCSS");
+    });
+
+    //js
+    watch(dirs.wp_js, () => {
+        gulp.start("copyJS");
     });
 });
 

@@ -1,0 +1,18 @@
+.subcategory {
+    // box model
+    display: none;
+}
+
+.subcategory--active {
+    // box model
+    display: inline;
+}
+
+.blog-post--favorite {
+    // typography
+    font-weight: 700;
+    color: #fafaff;
+    
+    // visual
+    background-color: rgba(0,0,0,0.4);
+}
