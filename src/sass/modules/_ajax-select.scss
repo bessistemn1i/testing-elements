@@ -16,3 +16,22 @@
     // visual
     background-color: rgba(0,0,0,0.4);
 }
+.favorite-button {
+    // box model
+    display: inline-block;
+}
+
+.blog-post--favorite .favorite-button {
+    // box model
+    display: none;
+}
+
+.unfavorite-button {
+    // box model
+    display: none;
+}
+
+.blog-post--favorite .unfavorite-button {
+    // box model
+    display: inline-block;
+}
