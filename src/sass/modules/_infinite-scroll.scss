@@ -1,0 +1,12 @@
+#spinner {
+    // box model
+    display: none;
+    vertical-align: top;
+    height: 16px;
+    
+    // typography
+    font-size: 32px;
+    line-height: 26px;
+    font-family: $baseFont;
+    color: #ffaaaa;
+}

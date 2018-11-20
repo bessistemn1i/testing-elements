@@ -76,7 +76,7 @@
         </div>
     </section> -->
 
-    <section class="ajax-form">
+    <!-- <section class="ajax-form">
         <div id="measurements">
             <p>Enter measurement below to determine the total volume.</p>
             <form action="<?php echo esc_url(home_url('ajax-form')); ?>" id="measurement-form" method="POST">
@@ -95,8 +95,7 @@
                     <input type="text" name="height">
                 </div>
                 
-                <input type="submit" value="Submit">
-                <input id="ajax-submit" type="button" value="Ajax Submit">
+                <input id="submit" type="submit" value="Submit">
                 <input id="recount" type="button" value="Пересчитать">
             </form>
         </div>
@@ -104,6 +103,16 @@
         <div id="result">
             <p>The total volume is: <span id="volume"></span></p>
         </div>
+    </section> -->
+
+    <section class="infinite-scroll">
+        <div id="blog-posts">
+            
+        </div>
+
+        <div id="spinner">*</div>
+
+        <div id="load-more-container"><button id="load-more" data-page="0">Load more</button></div>
     </section>
     <script src="<?php bloginfo('stylesheet_directory'); ?>/main.js?v='<?php echo rand(); ?>' "></script>
 </body>

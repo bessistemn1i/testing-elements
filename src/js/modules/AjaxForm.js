@@ -6,7 +6,7 @@ class AjaxForm {
     events() {
         let summ = document.querySelector('#result');
         let volume = document.querySelector('#volume');
-        let btn = document.querySelector('#ajax-submit');
+        let btn = document.querySelector('#submit');
         let recount = document.querySelector('#recount');
         let origin_btn_value = btn.value;
         let timer;
@@ -118,7 +118,10 @@ class AjaxForm {
             };
             xhr.send(form_data);
         }
-        btn.addEventListener('click', calculate);
+        btn.addEventListener('click', function (event) {
+            event.preventDefault();
+            calculate();
+        });
         recount.addEventListener('click', recounting);
     }
 }

@@ -17,8 +17,14 @@
     if($height == '') { $errors[] = 'height'; }
 
     if(!empty($errors)) {
-        $result_array = array('errors' => $errors);
-        echo json_encode($result_array);
+        if(is_ajax_request()) {
+            $result_array = array('errors' => $errors);
+            echo json_encode($result_array);
+        }
+        else {
+            echo "<p> The were errors on: " . implode(', ', $errors) . "</p>";
+            echo "<p><a href=\"testing\">Back</a></p>";
+        }
         exit;
     }
 
@@ -28,6 +34,7 @@
         echo json_encode(array('volume' => $volume));
     }
     else {
-        exit;
+        echo "<p> The total value is: " . $volume . "</p>";
+        echo "<p><a href=\"testing\">Back</a></p>";
     }
 ?>
