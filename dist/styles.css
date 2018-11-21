@@ -411,10 +411,11 @@ label {
   margin: 0 35px; }
 
 #spinner {
-  display: none;
   vertical-align: top;
   height: 16px;
+  display: none;
   font-size: 32px;
   line-height: 26px;
   font-family: "Open Sans";
-  color: #ffaaaa; }
+  color: #ffaaaa;
+  transform: none; }

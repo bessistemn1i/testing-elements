@@ -1,16 +1,16 @@
 class TestClass {
     constructor() {
-    this.mult;
      this.events();
     }
     mult(a, b) {
-        console.log(`${a * b}`);
+        return a * b;
+    }
+    div(a, b) {
+        return  a - b;
     }
 
     events() {
-        function innerFunc() {
-            this.mult(3, 5);
-        }
+        console.log(`${this.mult(1, 8)} / ${this.div(9, 3)}`);
     }
 }
 
