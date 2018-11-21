@@ -4,10 +4,12 @@ import AjaxSession from './modules/AjaxSession';
 import AjaxForm from "./modules/AjaxForm";
 import InfiniteScroll from './modules/InfiniteScroll';
 import TestClass from './modules/TestClass';
+import Autosuggest from './modules/Autosuggest';
 
+//new TestClass();
 //new AjaxPHP();
 //new AjaxSelect();
 //new AjaxSession();
 //new AjaxForm();
-new InfiniteScroll();
-//new TestClass();
+//new InfiniteScroll();
+new Autosuggest();

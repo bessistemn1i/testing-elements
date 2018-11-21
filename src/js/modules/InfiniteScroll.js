@@ -1,4 +1,5 @@
 class InfiniteScroll {
+    
     constructor() {
         this.container = document.querySelector('#blog-posts');
         this.load_more = document.querySelector('#load-more');
@@ -46,7 +47,7 @@ class InfiniteScroll {
         self.showSpinner();
         self.hideLoadMore();
 
-        let page = parseInt(this.load_more.getAttribute('data-page'));
+        let page = parseInt(self.load_more.getAttribute('data-page'));
         let next_page = page + 1;
 
         
@@ -67,15 +68,26 @@ class InfiniteScroll {
         }
 
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', `${window.location.origin}/testing/infinity?page_num=` + next_page, true);
+        xhr.open('GET', `http://jsonplaceholder.typicode.com/posts?id=` + next_page, true);
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhr.onreadystatechange = function() {
             if(xhr.readyState == 4 && xhr.status == 200) {
             let result = xhr.responseText;
+            let data = JSON.parse(result);
+            let dataToEx = data[0];
+            let dataToDow;
+            for (const key in dataToEx) {
+                if (dataToEx.hasOwnProperty(key)) {
+                    dataToDow = `<div id="blog-post-${dataToEx.id}" class="blog-post">
+                    <h3>${dataToEx.title}</h3>
+                    <p>${dataToEx.body}</p>
+                  </div>`
+                }
+            }
             
             self.hideSpinner();
             setCurrentPage(next_page);
-            appendToDiv(self.container, result);
+            appendToDiv(self.container, dataToDow);
             self.showLoadMore();
             self.request_in_progress = false;
             }

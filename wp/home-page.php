@@ -105,7 +105,7 @@
         </div>
     </section> -->
 
-    <section class="infinite-scroll">
+    <!-- <section class="infinite-scroll">
         <div id="blog-posts">
             
         </div>
@@ -113,6 +113,27 @@
         <div id="spinner">*</div>
 
         <div id="load-more-container"><button id="load-more" data-page="0">Load more</button></div>
+    </section> -->
+    <section class="autosuggest">
+        <div id="search-area">
+            <form action="search.php" method="GET" class="search-form">
+                <?php $q = isset($_GET['q']) ? $_GET['q'] : ''; ?>
+                <input type="text" id="search" name="q" value="<?php echo htmlspecialchars($q); ?>" />
+                <input type="submit" value="search" />
+            </form>
+
+            <ul id="suggestions">
+            
+            </ul>
+
+        <div id="page-content">
+        <?php 
+            $query = isset($_GET['q']) ? $_GET['q'] : '';
+        ?>
+            <h1>Search results</h1>
+            <p> You searched for: <strong><?php echo htmlspecialchars($query); ?></strong></p>
+        </div>
+        </div>
     </section>
     <script src="<?php bloginfo('stylesheet_directory'); ?>/main.js?v='<?php echo rand(); ?>' "></script>
 </body>
