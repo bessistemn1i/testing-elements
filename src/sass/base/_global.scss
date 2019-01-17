@@ -1,33 +1,33 @@
 html, body {
-    // box model
+    /* box model */
     width: 100%;
 }
 
 html {
-    // box model
+    /* box model */
     box-sizing: border-box;
     
-    // typography
+    /* typography */
     font-size: $baseFontSize;
 
     @include atMinMobile {
         font-size: $fontForSmallMobile;
     }
 
-    // visual
+    /* visual */
     overflow-x: hidden;
     overflow-y: auto;
 }
 
 body.main-vis {
-    // positioning
+    /* positioning */
     position: relative;
     
-    // box model
+    /* box model */
     min-width: 320px;
     margin: 0;
 
-    // visual
+    /* visual */
     overflow-x: hidden;
     overflow-y: auto;
     background-color: $baseColor;
@@ -41,6 +41,6 @@ body.main-vis {
 *,
 *::before,
 *::after{
-    // box model
+    /* box model */
     box-sizing: inherit;
 }

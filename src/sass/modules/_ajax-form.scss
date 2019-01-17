@@ -1,55 +1,58 @@
 .ajax-form {
-    // box model
+    /* box model */
     max-width: 400px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+
     background-color: rgba(0,0,0,0.3);
 }
 
-input[type="text"] {
-    // box model
+input[ type="text" ] {
+    /* box model */
     margin: 15px 0;
 
-    // visual
+    border: 1px solid #adff2f;
+
+    /* visual */
     border-radius: 7px;
-    border: 1px solid greenyellow;
 }
 
 #result {
-    // box model
+    /* box model */
     display: none;
 }
 
 input.error {
-    // visual
+    /* visual */
     border: 1px solid rgb(201, 55, 55);
 }
 
 .spinner {
-    // box model
+    /* box model */
     display: none;
     margin-left: 100px;
 
-    // typography
+    /* typography */
     font-size: 32px;
 }
 
 #recount {
-    // box model
+    /* box model */
     display: none;
 
 }
 
 label {
-    // typography
+    color: #665d5d;
+
+    /* typography */
     font-family: $baseFont;
     font-size: 1.1rem;
-    color: #665d5d;
 }
 
 .form-input__group {
-    // box model
+    /* box model */
     display: flex;
     flex-direction: row;
     justify-content: space-between;

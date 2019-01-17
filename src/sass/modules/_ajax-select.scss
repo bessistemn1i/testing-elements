@@ -1,37 +1,39 @@
 .subcategory {
-    // box model
+    /* box model */
     display: none;
 }
 
 .subcategory--active {
-    // box model
+    /* box model */
     display: inline;
 }
 
 .blog-post--favorite {
-    // typography
-    font-weight: 700;
     color: #fafaff;
+
+    /* typography */
+    font-weight: 700;
     
-    // visual
+    /* visual */
     background-color: rgba(0,0,0,0.4);
 }
+
 .favorite-button {
-    // box model
+    /* box model */
     display: inline-block;
 }
 
 .blog-post--favorite .favorite-button {
-    // box model
+    /* box model */
     display: none;
 }
 
 .unfavorite-button {
-    // box model
+    /* box model */
     display: none;
 }
 
 .blog-post--favorite .unfavorite-button {
-    // box model
+    /* box model */
     display: inline-block;
 }

@@ -6,7 +6,7 @@
     {
         return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
     }
-
+    
     if(!is_ajax_request()) {
         exit;
     }
@@ -37,14 +37,13 @@
         return $matches;
     }
     $query = isset($_GET['q']) ? $_GET['q'] : '';
-
+    echo $query;
     $choices = file('includes/us_passenger_trains.txt', FILE_IGNORE_NEW_LINES);
-
     $suggestions = search($query, $choices);
 
     sort($suggestions);
     $max_suggestions = 5;
-    $top_suggestions = array.slice($suggestions, 0, $max_suggestions);
+    $top_suggestions = array_slice($suggestions, 0, $max_suggestions);
     
     echo json_encode($suggestions);
 ?>

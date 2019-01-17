@@ -1,11 +1,11 @@
 ul#suggestions {
-    // box model
+    /* box model */
     display: none;
     margin: 0;
     padding: 0;
     width: 208px;
 
-    // visual
+    /* visual */
     list-style: none;
 }
 
@@ -14,20 +14,20 @@ ul#suggestions li {
 }
 
 ul#suggestions li a {
-    // box model
+    /* box model */
     display: block;
     min-height: 1em;
     padding: 0.5em 10px;
 
-    // typography
+    /* typography */
     color: #000000;
 
-    // visual
+    /* visual */
     text-decoration: none;
     background: #cccccc;
 
     &:hover {
-        // visual
-        background: #aaa;
+        /* visual */
+        background: #aaaaaa;
     }
 }
