@@ -26,7 +26,7 @@
 </body>
 <script>
     grecaptcha.ready(function() {
-    grecaptcha.execute('6Lf31osUAAAAAM0KIuqHnTRm8Kj9iC-75RpbYvYR', {action: 'action_name'})
+    grecaptcha.execute('6Lf31osUAAAAAM0KIuqHnTRm8Kj9iC-75RpbYvYR', {action: 'verify_captcha'})
     .then(function(token) {
         var data = new FormData();
                 data.append("action", 'add_comment');
