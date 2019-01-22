@@ -9,7 +9,7 @@ if (isset($_POST['token']) && isset($_POST['action'])) {
  
 $url = 'https://www.google.com/recaptcha/api/siteverify';
 $params = [
-    'secret' => '6Lfwl4MUAAAAAKCP8ZV13J6ngN_A9RiPtzxM9CDi',
+    'secret' => '6Lf31osUAAAAAM0KIuqHnTRm8Kj9iC-75RpbYvYR',
     'response' => $captcha_token,
     'remoteip' => $_SERVER['REMOTE_ADDR']
 ];
@@ -29,8 +29,13 @@ $success = false;
 if ($decoded_response && $decoded_response->success && $decoded_response->action == $captcha_action && $decoded_response->score > 0) {
     $success = $decoded_response->success;
     // обрабатываем данные формы, которая защищена капчей
+                $text=$_POST['comment'];
+                $msg="Вам прислали сообщение\nСообщение: {comment}\n";
+                mail('eduard.zhuelga@yandex.ru','Сообщение с сайта', $msg,'From: info@adgusto.ru');
+                echo "Ваше сообщение успешно отправлено";
 } else {
     // прописываем действие, если пользователь оказался ботом
+ exit('Извините но похоже вы робот \(0_0)/');
 }
  
 echo json_encode($result);
