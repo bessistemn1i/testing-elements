@@ -4,25 +4,31 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="styles.css")
         title Test-modules
     body
     
     include pug-modules/header.pug
 
-    section.tested
-        .block Block_1
-        .block Block_2
-        .block Block_3
-    
-    section.tested
-        .block Block_1
-        .block Block_2
-        .block Block_3
-    
-    section.tested
-        .block Block_1
-        .block Block_2
-        .block Block_3
+    section.sliderWrap
+        .slider
+            .slider__nav
+            .slider__contaner
+                .slide
+                    p.slider__text slide1
+                    img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
+                .slide
+                    p.slider__text slide2
+                    img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
+                .slide
+                    p.slider__text slide3
+                    img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
+                .slide
+                    p.slider__text slide4
+                    img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
+                .slide
+                    p.slider__text slide5
+                    img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
     
     include pug-modules/footer.pug
 
