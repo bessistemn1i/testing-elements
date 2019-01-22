@@ -26,13 +26,13 @@
 </body>
 <script>
     grecaptcha.ready(function() {
-    grecaptcha.execute('6Lf31osUAAAAAM0KIuqHnTRm8Kj9iC-75RpbYvYR', {action: 'verify_captcha'})
-    .then(function(token) {
-        var data = new FormData();
+        grecaptcha.execute('6Lf31osUAAAAAM0KIuqHnTRm8Kj9iC-75RpbYvYR', {action: 'add_comment'})
+            .then(function(token) {
+                var data = new FormData();
                 data.append("action", 'add_comment');
                 data.append("token", token);
  
-                fetch('verify_captcha.php', {
+                fetch('/verify_captcha.php', {
                     method: 'POST',
                     body: data
                 }).then(function(response) {
@@ -40,8 +40,7 @@
                         if (!data) document.getElementById('comment-form').style.display = 'none';
                     });
                 });
-    // Verify the token on the server.
-        });
+            });
     });
     </script>
 <script src="main.js"></script>
