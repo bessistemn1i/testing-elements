@@ -32,7 +32,7 @@
                 data.append("action", 'add_comment');
                 data.append("token", token);
  
-                fetch('/verify_captcha.php', {
+                fetch('verify_captcha.php', {
                     method: 'POST',
                     body: data
                 }).then(function(response) {
