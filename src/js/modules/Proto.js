@@ -4,46 +4,47 @@ class Generator {
     }
 
     events() {
-        const sliderWrap = document.querySelector('.sliderWrap');
-        const slider = document.querySelector('.slider');
+        const bts = document.querySelectorAll('[data-direction]');
         const slides = Array.from(document.querySelectorAll('.slide'));
-        let addEvent = function (object, type, callback) {
-            if(object == null || typeof object == 'undefined') return;
-            if(object.addEventListener) {
-                object.addEventListener(type, callback, false);
-            }
-            else if(object.attachEvent) {
-                object.attachEvent("on" + type, callback);
-            }
-            else {
-                object["on"+type] = callback;
-            }
-        };
-        
+        const arrCT = document.querySelector('.slider__contaner');
         let numb = 0;
         function moving() {
-            let slideWidth = +(slider.scrollWidth / 3).toFixed(2);
-            let slideGap = 30;
+            let slideWidth = 30;
 
             for(let i = 0; i < slides.length; i++) {
             const slide = slides[i];
-            numb = (slideWidth + (slideGap / 2)) * i;
-            slide.style.maxWidth = `${slideWidth - slideGap}px`;
-            slide.style.transform = `translateX(${numb}px)`;
+            numb = ((slideWidth - 13) + 100) * i;
+            slide.style.maxWidth = `${slideWidth}%`;
+            slide.style.transform = `translateX(${numb}%)`;
             }
             
         }
         moving();
-
-        function testing() {
-            if(window.innerWidth > 1000) {
-                console.log(1 + 1);
+        let n = 0;
+        function sliding() {
+            if(this.dataset.direction == 'prev') {
+                n+=35;
+                arrCT.style.transform = `translateX(${n}%)`;/* 0 */
+                slides.unshift(slides.pop());
+                slides.map(item => {
+                    arrCT.appendChild(item);
+                });
             }
-            else {
-                console.log(1+2);
+            if (this.dataset.direction == 'next') {
+                n-= 35;
+                arrCT.style.transform = `translateX(${n}%)`;/* 
+                if (n < (-slideGap * (slides.length-3))) {
+                    arrCT.style.transform = `translateX(0)`;
+                    n = 0;
+                } */
+                slides.push(slides.shift());
+                slides.map(item => {
+                    arrCT.appendChild(item);
+                });
             }
         }
-        testing();
+
+        bts.forEach(btn => btn.addEventListener('click', sliding));
     }
 }
 export default Generator;

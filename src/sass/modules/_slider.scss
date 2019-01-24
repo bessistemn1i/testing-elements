@@ -21,19 +21,12 @@
     height: 300px;
 }
 
-.slider__container {
-    /* positioning */
-    position: absolute;
-    left: 0;
-    right: 0;
-    
+.slider__contaner {
     /* box model */
     width: 100%;
 
-}
-
-.slider__nav {
-
+    /* visual */
+    transition: transform 0.3s ease-in-out;
 }
 
 .slide {
@@ -42,6 +35,9 @@
 
     /* box model */
     width: 100%;
+
+    /* visual */
+    transition: transform 0.3s ease-in-out;
 }
 
 .slide__image {

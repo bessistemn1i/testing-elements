@@ -13,23 +13,29 @@ html(lang="en")
     section.sliderWrap
         .slider
             .slider__nav
+                button.slider__btn(data-direction="prev") Prev
+                button.slider__btn(data-direction="next") Next
+
             .slider__contaner
-                .slide
+                .slide.slide1
                     p.slider__text slide1
                     img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
-                .slide
+                .slide.slide2
                     p.slider__text slide2
                     img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
-                .slide
+                .slide.slide3
                     p.slider__text slide3
                     img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
-                .slide
+                .slide.slide4
                     p.slider__text slide4
                     img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
-                .slide
+                .slide.slide5
                     p.slider__text slide5
                     img.slide__image(src="https://picsum.photos/300/300/?random", alt="Image1")
-    
+
+        button.slideChange Change
+        .arrContent
+        button.slideChangeBack Unchange
     include pug-modules/footer.pug
 
     script(src="main.js")
