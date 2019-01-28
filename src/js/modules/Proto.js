@@ -24,22 +24,54 @@ class Generator {
         function sliding() {
             if(this.dataset.direction == 'prev') {
                 n+=35;
-                arrCT.style.transform = `translateX(${n}%)`;/* 0 */
                 slides.unshift(slides.pop());
                 slides.map(item => {
                     arrCT.appendChild(item);
+
+                    let resPrev = item.style.transform;
+                    const resNumb = +(resPrev.match(/[\d]/g).join(''));
+                    let resToSlidePrev = resNumb + 117;
+                    item.style.opacity = 1;
+                    if(resToSlidePrev > 468) {
+                        resToSlidePrev = -117;
+                        item.style.opacity = 0;
+                        setTimeout(() => {
+                            resToSlidePrev = 0;
+                            item.style.opacity = 1;
+                            item.style.transform = `translateX(${resToSlidePrev}%)`;
+                            item.style.transition = `all 10.1s ease`;
+                        }, 300);
+                    }
+                    setTimeout(() => {
+                        item.style.transform = `translateX(${resToSlidePrev}%)`;
+                        item.style.transition = `all 0.3s ease`;
+                    }, 0);
                 });
             }
             if (this.dataset.direction == 'next') {
-                n-= 35;
-                arrCT.style.transform = `translateX(${n}%)`;/* 
-                if (n < (-slideGap * (slides.length-3))) {
-                    arrCT.style.transform = `translateX(0)`;
-                    n = 0;
-                } */
+                n -= 35;
                 slides.push(slides.shift());
                 slides.map(item => {
                     arrCT.appendChild(item);
+                    let resNext = item.style.transform;
+                    const resNumb = +(resNext.match(/[\d]/g).join(''));
+                    let resToSlide = resNumb - 117;
+                    if(resToSlide < 0) {
+                        resToSlide = -117;
+                        item.style.transition = `transform 0.3s ease`;
+                        item.style.transform = `translateX(0%)`;
+                        setTimeout(() => {
+                            item.style.transform = `translateX(${resToSlide}%)`;
+                            resToSlide = 468;
+                            item.style.opacity = 0;
+                            item.style.transform = `translateX(${resToSlide}%)`;
+                        }, 300);
+                    }
+                    setTimeout(() => {
+                        item.style.transform = `translateX(${resToSlide}%)`;
+                        item.style.transition = `transform 0.3s ease-in-out`;
+                        item.style.opacity = 1;
+                    }, 0);
                 });
             }
         }

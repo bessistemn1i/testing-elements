@@ -386,25 +386,41 @@ body.main-vis {
 
 .slider__contaner {
   /* box model */
-  width: 100%;
-  /* visual */
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out; }
+  width: 100%; }
 
 .slide {
   /* positioning */
   position: absolute;
   /* box model */
   width: 100%;
-  /* visual */
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out; }
+  height: 300px;
+  /* visual */ }
 
 .slide__image {
   /* box model */
   display: block;
   width: 100%; }
+
+.someOuterBlock {
+  /* positioning */
+  position: relative;
+  /* box model */
+  height: 400px;
+  margin-bottom: 100px; }
+
+.someBlock {
+  /* positioning */
+  position: absolute;
+  /* box model */
+  height: 300px;
+  width: 100%;
+  /* visual */
+  background-color: #a52a2a;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out; }
+
+.someButtonToClick {
+  /* positioning */
+  position: relative; }
