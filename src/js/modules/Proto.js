@@ -20,8 +20,27 @@ class Generator {
             
         }
         moving();
+
         let n = 0;
+        function debounce(func, wait = 300, immediate = true) {
+            let timeout;
+            return function () {
+                let context = this,
+                    args = arguments;
+                
+                let later = function () {
+                    timeout = null;
+                    if(!immediate) func.apply(context, args);
+                };
+                let callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if(callNow) func.apply(context, args);
+            };
+        };
+
         function sliding() {
+            
             if(this.dataset.direction == 'prev') {
                 n+=35;
                 slides.unshift(slides.pop());
@@ -35,19 +54,17 @@ class Generator {
                     if(resToSlidePrev > 468) {
                         resToSlidePrev = -117;
                         item.style.opacity = 0;
-                        setTimeout(() => {
-                            resToSlidePrev = 0;
-                            item.style.opacity = 1;
-                            item.style.transform = `translateX(${resToSlidePrev}%)`;
-                            item.style.transition = `all 10.1s ease`;
-                        }, 300);
+                        item.style.transform = `translateX(${resToSlidePrev}%)`;
                     }
                     setTimeout(() => {
+                        arrCT.firstElementChild.style.transform = `translateX(0%)`;
+                        arrCT.firstElementChild.style.opacity = 1;
                         item.style.transform = `translateX(${resToSlidePrev}%)`;
-                        item.style.transition = `all 0.3s ease`;
+                        item.style.transition = `all 0.3s ease-in-out`;
                     }, 0);
                 });
             }
+
             if (this.dataset.direction == 'next') {
                 n -= 35;
                 slides.push(slides.shift());
@@ -76,7 +93,7 @@ class Generator {
             }
         }
 
-        bts.forEach(btn => btn.addEventListener('click', sliding));
+        bts.forEach(btn => btn.addEventListener('click', debounce(sliding)));
     }
 }
 export default Generator;
