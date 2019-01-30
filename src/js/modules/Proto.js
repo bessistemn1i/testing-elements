@@ -4,24 +4,24 @@ class Generator {
     }
 
     events() {
-        const bts = document.querySelectorAll('[data-direction]');
+        const buttons = document.querySelectorAll('[data-direction]');
         const slides = Array.from(document.querySelectorAll('.slide'));
-        const arrCT = document.querySelector('.slider__contaner');
-        let numb = 0;
-        function moving() {
-            let slideWidth = 30;
-
+        const sliderContainer = document.querySelector('.slider__container');
+        let distanceFromStart = 0;
+        let slideGapInProcent = 13;
+        let slideWidthInProcent = 30;
+        let distanceBetweenSlides = ((slideWidthInProcent - slideGapInProcent) + 100);
+        let maxDistanceFromStart = ((slideWidthInProcent - slideGapInProcent) + 100) * (slides.length - 1);
+        let minDistanceFromStart = -((slideWidthInProcent - slideGapInProcent) + 100);
+        (function locateSlides() {
             for(let i = 0; i < slides.length; i++) {
             const slide = slides[i];
-            numb = ((slideWidth - 13) + 100) * i;
-            slide.style.maxWidth = `${slideWidth}%`;
-            slide.style.transform = `translateX(${numb}%)`;
+            distanceFromStart = ((slideWidthInProcent - slideGapInProcent) + 100) * i;
+            slide.style.maxWidth = `${slideWidthInProcent}%`;
+            slide.style.transform = `translateX(${distanceFromStart}%)`;
             }
-            
-        }
-        moving();
+        })();
 
-        let n = 0;
         function debounce(func, wait = 300, immediate = true) {
             let timeout;
             return function () {
@@ -39,61 +39,58 @@ class Generator {
             };
         };
 
-        function sliding() {
-            
+        function moveSlides() {
             if(this.dataset.direction == 'prev') {
-                n+=35;
                 slides.unshift(slides.pop());
-                slides.map(item => {
-                    arrCT.appendChild(item);
+                slides.map(slide => {
+                    let locationFromStart = slide.style.transform;
+                    sliderContainer.appendChild(slide);
 
-                    let resPrev = item.style.transform;
-                    const resNumb = +(resPrev.match(/[\d]/g).join(''));
-                    let resToSlidePrev = resNumb + 117;
-                    item.style.opacity = 1;
-                    if(resToSlidePrev > 468) {
-                        resToSlidePrev = -117;
-                        item.style.opacity = 0;
-                        item.style.transform = `translateX(${resToSlidePrev}%)`;
+                    const locationFromStartInDigit = +(locationFromStart.match(/[\d]/g).join(''));
+                    let locationOnClickFromStart = locationFromStartInDigit + distanceBetweenSlides;
+                    slide.style.opacity = 1;
+                    if(locationOnClickFromStart > maxDistanceFromStart) {
+                        locationOnClickFromStart = minDistanceFromStart;
+                        slide.style.opacity = 0;
+                        slide.style.transform = `translateX(${locationOnClickFromStart}%)`;
                     }
                     setTimeout(() => {
-                        arrCT.firstElementChild.style.transform = `translateX(0%)`;
-                        arrCT.firstElementChild.style.opacity = 1;
-                        item.style.transform = `translateX(${resToSlidePrev}%)`;
-                        item.style.transition = `all 0.3s ease-in-out`;
+                        sliderContainer.firstElementChild.style.transform = `translateX(0%)`;
+                        sliderContainer.firstElementChild.style.opacity = 1;
+                        slide.style.transform = `translateX(${locationOnClickFromStart}%)`;
+                        slide.style.transition = `all 0.2s ease-in-out`;
                     }, 0);
                 });
             }
 
             if (this.dataset.direction == 'next') {
-                n -= 35;
                 slides.push(slides.shift());
-                slides.map(item => {
-                    arrCT.appendChild(item);
-                    let resNext = item.style.transform;
-                    const resNumb = +(resNext.match(/[\d]/g).join(''));
-                    let resToSlide = resNumb - 117;
-                    if(resToSlide < 0) {
-                        resToSlide = -117;
-                        item.style.transition = `transform 0.3s ease`;
-                        item.style.transform = `translateX(0%)`;
+                slides.map(slide => {
+                    sliderContainer.appendChild(slide);
+                    let locationFromStart = slide.style.transform;
+                    const locationFromStartInDigit = +(locationFromStart.match(/[\d]/g).join(''));
+                    let locationOnClickFromStart = locationFromStartInDigit - distanceBetweenSlides;
+                    if(locationOnClickFromStart < 0) {
+                        locationOnClickFromStart = minDistanceFromStart;
+                        slide.style.transition = `transform 0.2s ease-in-out`;
+                        slide.style.transform = `translateX(0%)`;
                         setTimeout(() => {
-                            item.style.transform = `translateX(${resToSlide}%)`;
-                            resToSlide = 468;
-                            item.style.opacity = 0;
-                            item.style.transform = `translateX(${resToSlide}%)`;
+                            slide.style.transform = `translateX(${locationOnClickFromStart}%)`;
+                            locationOnClickFromStart = maxDistanceFromStart;
+                            slide.style.opacity = 0;
+                            slide.style.transform = `translateX(${locationOnClickFromStart}%)`;
                         }, 300);
                     }
                     setTimeout(() => {
-                        item.style.transform = `translateX(${resToSlide}%)`;
-                        item.style.transition = `transform 0.3s ease-in-out`;
-                        item.style.opacity = 1;
+                        slide.style.transform = `translateX(${locationOnClickFromStart}%)`;
+                        slide.style.transition = `transform 0.2s ease-in-out`;
+                        slide.style.opacity = 1;
                     }, 0);
                 });
             }
         }
 
-        bts.forEach(btn => btn.addEventListener('click', debounce(sliding)));
+        buttons.forEach(btn => btn.addEventListener('click', debounce(moveSlides)));
     }
 }
 export default Generator;
