@@ -32,7 +32,13 @@
 
     /* box model */
     width: 100%;
+    max-width: 30%;
     height: 300px;
+
+    @include atDesktopM {
+        /* box model */
+        max-width: 25%;
+    }
 }
 
 .slide__image {

@@ -8,20 +8,25 @@ class Generator {
         const slides = Array.from(document.querySelectorAll('.slide'));
         const sliderContainer = document.querySelector('.slider__container');
         let distanceFromStart = 0;
-        let slideGapInProcent = 13;
-        let slideWidthInProcent = 30;
-        let distanceBetweenSlides = ((slideWidthInProcent - slideGapInProcent) + 100);
-        let maxDistanceFromStart = ((slideWidthInProcent - slideGapInProcent) + 100) * (slides.length - 1);
-        let minDistanceFromStart = -((slideWidthInProcent - slideGapInProcent) + 100);
-        (function locateSlides() {
+        let slideGapInProcent;
+        let distanceBetweenSlides;
+        let maxDistanceFromStart;
+        let minDistanceFromStart;
+        
+        function locateSlides() {
+            let slideWidthInTheString = (window.getComputedStyle(slides[0])).getPropertyValue('max-width');
+            let slideWidthInProcent = +(slideWidthInTheString.match(/\d/g).join(''));
+            slideGapInProcent = Math.round(((100 - (slideWidthInProcent * 3)) / 2) * 100 / slideWidthInProcent);
+            distanceBetweenSlides = (slideGapInProcent + 100);
+            maxDistanceFromStart = (slideGapInProcent + 100) * (slides.length - 1);
+            minDistanceFromStart = -(slideGapInProcent + 100);
             for(let i = 0; i < slides.length; i++) {
             const slide = slides[i];
-            distanceFromStart = ((slideWidthInProcent - slideGapInProcent) + 100) * i;
-            slide.style.maxWidth = `${slideWidthInProcent}%`;
+            distanceFromStart = (slideGapInProcent + 100) * i;
             slide.style.transform = `translateX(${distanceFromStart}%)`;
             }
-        })();
-
+        };
+        locateSlides();
         function debounce(func, wait = 300, immediate = true) {
             let timeout;
             return function () {
@@ -38,6 +43,15 @@ class Generator {
                 if(callNow) func.apply(context, args);
             };
         };
+
+        function debounceOnResize(func) {
+            let timer;
+            return function (event) {
+                if(timer) clearTimeout(timer);
+                timer = setTimeout(func, 400, event);
+            }
+        }
+        window.addEventListener('resize', debounceOnResize(locateSlides));
 
         function moveSlides() {
             if(this.dataset.direction == 'prev') {

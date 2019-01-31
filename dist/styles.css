@@ -393,7 +393,12 @@ body.main-vis {
   position: absolute;
   /* box model */
   width: 100%;
+  max-width: 30%;
   height: 300px; }
+  @media (min-width: 1200px) {
+    .slide {
+      /* box model */
+      max-width: 25%; } }
 
 .slide__image {
   /* box model */
