@@ -4,32 +4,34 @@ class Oop {
     }
 
     events() {
-        let myFamily = (function () {
-            let family = [];
+        let eBlock = document.querySelector('.eventBlock');
+        let blockToMove = document.querySelector('.blockToMove');
 
-            return {
-                addMember: function (member) {
-                    family.push(member);
-                },
+        let arrOfColors = [
+            'green',
+            'black',
+            'yellow',
+            'blue',
+            'red'
+        ]
 
-                removeMember: function (member) {
-                    let familyIndex = family.indexOf(member);
-                    if(familyIndex >= 0) {
-                        family.splice(familyIndex, 1);
-                    }
-                },
+        function generateColors(arr) {
+            return arr[Math.floor((Math.random() * arr.length - 1)) + 1];
+        }
 
-                getFamilyMemebers: function () {
-                    return JSON.parse(JSON.stringify(family));
-                }
+        blockToMove.addEventListener('mousedown', function (evt) {
+            evt.preventDefault();
+
+            let start = {
+                x: evt.clientX,
+                y: evt.clientY
+            };
+
+            function startToMove(evtMove) {
+                evt
             }
-        })();
-        myFamily.addMember('Ed');
-        myFamily.addMember('Uncle Alexander');
-        myFamily.addMember('Vera');
-        myFamily.addMember('Sonya');
-        myFamily.addMember('Uliana');
-        console.log(myFamily.getFamilyMemebers());
+            document.addEventListener('mousemove', startToMove);
+        })
     }
 }
 

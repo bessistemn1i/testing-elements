@@ -95,7 +95,6 @@ class Generator {
                 });
             }
         }
-
         buttons.forEach(btn => btn.addEventListener('click', moveSlides));
     }
 }
