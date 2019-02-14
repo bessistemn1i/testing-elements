@@ -27,13 +27,15 @@
 }
 
 .slide {
+
+    
     /* positioning */
     position: absolute;
 
     /* box model */
-    width: 100%;
-    max-width: 30%;
     height: 300px;
+    max-width: 30%;
+    width: 100%;
 
     @include atDesktopM {
         /* box model */
@@ -42,7 +44,10 @@
 }
 
 .slide__image {
-    /* box model */
-    display: block;
-    width: 100%;
+    /* box model */      
+
+
+
+    width          : 100%;
+    display: block             ;
 }

@@ -35,6 +35,7 @@
         "sass-module-importer": "^1.4.0",
         "stylelint": "^9.9.0",
         "stylelint-order": "^2.0.0",
+        "stylelint-scss": "^3.5.2",
         "uglifyjs-webpack-plugin": "^2.1.1",
         "webpack-stream": "^5.2.1"
     },

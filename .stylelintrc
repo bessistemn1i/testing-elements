@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "stylelint-scss",
     "stylelint-order"
   ],
 
@@ -99,7 +100,6 @@
       "color-hex-length": "long",
       "number-leading-zero": "always",
       "block-opening-brace-space-before": "always",
-      "comment-empty-line-before": ["always", { except: ["first-nested"]}],
-      
+      "scss/double-slash-comment-empty-line-before": ["always", { except: ["first-nested"]}]
   }
 }
