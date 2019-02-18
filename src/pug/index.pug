@@ -34,10 +34,30 @@ html(lang="en")
                     img.slide__image(src="https://picsum.photos/300/300/?5", alt="Image5")
         
         
-    
+    section.data-test
+        template.data-test__template
+            .data-test__template-content
+                .h2.data-testName Some test
+                .data-test__image
+                    img(src="#", alt="Some testing image")
+        .data-test__content
+
+    section.sliderOnMobile
+        .slideOnMobile
+            p.slider__text slide1
+            img.slide__image(src="https://picsum.photos/300/300/?1", alt="Image1")
+        .slideOnMobile
+            p.slider__text slide2
+            img.slide__image(src="https://picsum.photos/300/300/?2", alt="Image2")
+        .slideOnMobile
+            p.slider__text slide3
+            img.slide__image(src="https://picsum.photos/300/300/?3", alt="Image3")
+        .slideOnMobile
+            p.slider__text slide4
+            img.slide__image(src="https://picsum.photos/300/300/?4", alt="Image4")
+        .slideOnMobile
+            p.slider__text slide5
+            img.slide__image(src="https://picsum.photos/300/300/?5", alt="Image5")
     include pug-modules/footer.pug
-    script(src="test1.js")
-    script(src="test2.js")
-    script(src="test3.js")
     script(src="main.js")
     

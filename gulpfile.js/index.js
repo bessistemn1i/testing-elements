@@ -23,7 +23,7 @@ const dirs = {
 // Webpack config
 const webpackConfig = {
   entry: {
-    main: './src/js/main.js'
+    main: './src/js/main.js',
   },
 
   output: {

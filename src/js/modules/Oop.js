@@ -4,34 +4,33 @@ class Oop {
     }
 
     events() {
-        let eBlock = document.querySelector('.eventBlock');
-        let blockToMove = document.querySelector('.blockToMove');
-
-        let arrOfColors = [
-            'green',
-            'black',
-            'yellow',
-            'blue',
-            'red'
-        ]
-
-        function generateColors(arr) {
-            return arr[Math.floor((Math.random() * arr.length - 1)) + 1];
-        }
-
-        blockToMove.addEventListener('mousedown', function (evt) {
-            evt.preventDefault();
-
-            let start = {
-                x: evt.clientX,
-                y: evt.clientY
-            };
-
-            function startToMove(evtMove) {
-                evt
+        (function () {
+            function onLoad (data) {
+                console.log(data);
             }
-            document.addEventListener('mousemove', startToMove);
-        })
+            function onError(message) {
+                console.error(message);
+            }
+            window.onload = {
+                save(onLoad, onError) {
+                    let url = 'http://jsonplaceholder.typicode.com/posts';
+                    let xhr = new XMLHttpRequest();
+                    xhr.open('GET', url);
+                    xhr.addEventListener('load', function () {
+                        if(xhr.readyState == 4) {
+                            if (xhr.status == 200) {
+                                onLoad(xhr.responseText);
+                            }
+                        }
+                        else {
+                            onError('You have a new error. Try again later.')
+                        }
+                    });
+                    xhr.send();
+                }
+            }
+            window.onload.save(onLoad, onError);
+        })();
     }
 }
 
