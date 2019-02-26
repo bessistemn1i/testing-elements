@@ -9,55 +9,12 @@ html(lang="en")
     body
     
     include pug-modules/header.pug
+    
+    section.sum
+        .palete
+            input.input-numb(type="text")
+        canvas#arrow
 
-    section.sliderWrap
-        .slider
-            .slider__nav
-                button.slider__btn(data-direction="prev") Prev
-                button.slider__btn(data-direction="next") Next
-
-            .slider__container
-                .slide.slide1
-                    p.slider__text slide1
-                    img.slide__image(src="https://picsum.photos/300/300/?1", alt="Image1")
-                .slide.slide2
-                    p.slider__text slide2
-                    img.slide__image(src="https://picsum.photos/300/300/?2", alt="Image2")
-                .slide.slide3
-                    p.slider__text slide3
-                    img.slide__image(src="https://picsum.photos/300/300/?3", alt="Image3")
-                .slide.slide4
-                    p.slider__text slide4
-                    img.slide__image(src="https://picsum.photos/300/300/?4", alt="Image4")
-                .slide.slide5
-                    p.slider__text slide5
-                    img.slide__image(src="https://picsum.photos/300/300/?5", alt="Image5")
-        
-        
-    section.data-test
-        template.data-test__template
-            .data-test__template-content
-                .h2.data-testName Some test
-                .data-test__image
-                    img(src="#", alt="Some testing image")
-        .data-test__content
-
-    section.sliderOnMobile
-        .slideOnMobile
-            p.slider__text slide1
-            img.slide__image(src="https://picsum.photos/300/300/?1", alt="Image1")
-        .slideOnMobile
-            p.slider__text slide2
-            img.slide__image(src="https://picsum.photos/300/300/?2", alt="Image2")
-        .slideOnMobile
-            p.slider__text slide3
-            img.slide__image(src="https://picsum.photos/300/300/?3", alt="Image3")
-        .slideOnMobile
-            p.slider__text slide4
-            img.slide__image(src="https://picsum.photos/300/300/?4", alt="Image4")
-        .slideOnMobile
-            p.slider__text slide5
-            img.slide__image(src="https://picsum.photos/300/300/?5", alt="Image5")
     include pug-modules/footer.pug
     script(src="main.js")
     
