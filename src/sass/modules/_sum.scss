@@ -45,4 +45,31 @@
     // box model
     height: 40px;
     width: 40px;
+
+    // typographyp
+    text-align: center;
+    
+    // visual
+    border: 2px solid #000000;
+}
+
+.input-numbSecond--visually-hidden {
+    // positioning
+    position: absolute;
+
+    // box model
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+}
+
+.errored {
+    // box model
+    display: none;
+
+    // typography
+    color: #ff00ff;
+    font-family: sans-serif;
+    font-size: 24px;
 }

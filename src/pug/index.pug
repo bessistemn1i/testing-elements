@@ -12,8 +12,10 @@ html(lang="en")
     
     section.sum
         .palete
-            input.input-numb(type="text")
+            input.input-numb(type="number" min = '0' max="100")
+            input.input-numb.input-numbSecond.input-numbSecond--visually-hidden(type="number" min = '0' max='100')
         canvas#arrow
+        .errored
 
     include pug-modules/footer.pug
     script(src="main.js")
