@@ -10,13 +10,31 @@ html(lang="en")
     
     include pug-modules/header.pug
     
-    section.sum
+    //section.sum
         .palete
             input.input-numb(type="number" min = '0' max="100")
             input.input-numb.input-numbSecond.input-numbSecond--visually-hidden(type="number" min = '0' max='100')
         canvas#arrow
         .errored
+    //section.calculator-wrap
+        .calc-block
+            .calc-blokc__price
+        .calc-block
+            .calc-block__counter
+        .calc-block
+            .calc-block__result
+        .calc-block
+            .calc-block__reset
+    
+    section.form-test
+        form#form(action="")
+            input(type="text" name="testName")
+            input(type="text" name="testLastName")
+            input(type="text" name="testTel")
+            input(type="text" name="testMail")
+            input(type="submit" value="send")
 
+        ul.form-content
     include pug-modules/footer.pug
     script(src="main.js")
     

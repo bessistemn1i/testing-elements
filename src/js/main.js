@@ -1,5 +1,3 @@
-import Summ from "./modules/Sum";
+import FormTest from "./modules/FormTest";
 
-//import DataTest from "./modules/DataTest";
-//const dataT = new DataTest();
-const sum = new Summ;
+const form = new FormTest();

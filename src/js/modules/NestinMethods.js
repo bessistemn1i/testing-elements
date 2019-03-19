@@ -1,33 +1,28 @@
 class NestingMethods {
-    constructor(someDates) {
-        this.dates = someDates;
-        this.changeDataType;
-        this.getData;
-        this.resultData;
+    constructor(...terms) {
+        this.terms = [...terms];
+        this.summing;
+        this.multyplying;
         this.events();
     }
 
-    changeDataType(someLetters) {
-        let arr = someLetters.split(',').map((el) => {
-            return +el;
-        });
-        return arr;
-    };
-
-    getData() {
-        let inR = this.changeDataType(this.dates);
-        return inR;
-    };
-
-    resultData() {
-        let result = this.getData();
-        let res = result.reduce((a,b) => {
-            return a + b;
+    summing(arr) {
+        let result = arr.reduce((sum, el) => {
+            return sum+el;
         },0);
-        console.log(res);
-    }
+        console.log(result);
+        return result;
+    };
+    multyplying(arr) {
+        let result = arr.reduce((res, el) => {
+            return res*el;
+        },1);
+        console.log(result);
+        return result;
+    };
     events() {
-        this.resultData();
+        this.summing(this.terms);
+        this.multyplying(this.terms);
     }
 }
 
