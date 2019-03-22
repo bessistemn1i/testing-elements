@@ -1,3 +1,2 @@
-import FormTest from "./modules/FormTest";
-
-const form = new FormTest();
+import Calculator from './modules/Calculator';
+const calc = new Calculator();

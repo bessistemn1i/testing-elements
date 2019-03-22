@@ -59,7 +59,7 @@ class FormTest {
                     this.inputs.forEach((el) => {
                         if(el.getAttribute('name') == key)
                         el.value = element;
-                    })
+                    });
                 }
             }
         }

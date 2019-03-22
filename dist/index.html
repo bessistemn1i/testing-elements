@@ -21,19 +21,73 @@
     input.input-numb.input-numbSecond.input-numbSecond--visually-hidden(type="number" min = '0' max='100')
 canvas#arrow
 .errored-->
-<!--section.calculator-wrap.calc-block
-    .calc-blokc__price
-.calc-block
-    .calc-block__counter
-.calc-block
-    .calc-block__result
-.calc-block
-    .calc-block__reset
--->
-<section class="form-test">
-    <form id="form" action=""><input type="text" name="testName" /><input type="text" name="testLastName" /><input type="text" name="testTel" /><input type="text" name="testMail" /><input type="submit" value="send" /></form>
-    <ul class="form-content"></ul>
+<section class="calculator-wrap">
+    <table class="basket__content">
+        <tbody>
+            <tr>
+                <th class="basket__content-title-name" colspan="2">Наименование</th>
+                <th class="basket__content-title-price">Цена</th>
+                <th class="basket__content-title">Количество</th>
+                <th class="basket__content-title">Стоимость</th>
+                <th class="basket__content-title"></th>
+            </tr>
+        </tbody>
+        <tr class="basket__item">
+            <td class="basket__item-image"><img src="img/catalog/gel.png" alt="Product" /></td>
+            <td class="basket__item-name"><a href="product.html">Гель для Бритья «Barber Wild» Alaska <span class="basket__new">new</span></a></td>
+            <td class="basket__item-price">1000</td>
+            <td class="basket__item-count">
+                <div class="spinner"><button class="spinner__button spinner__minus">-</button><input class="spinner__input" type="number" value="0" /><button class="spinner__button spinner__plus" type="button">+</button></div>
+            </td>
+            <td class="basket__item-cost"></td>
+            <td class="basket__item-remove"><button class="icon-close" id="deleteProduct">+</button></td>
+        </tr>
+        <tr class="basket__item">
+            <td class="basket__item-image"><img src="img/catalog/matt-clay-woodie.png" alt="Product" /></td>
+            <td class="basket__item-name"><a href="product.html">Матирующая глина «Barber Wild» (Woodie) <span>Limited edition</span></a></td>
+            <td class="basket__item-price">1300</td>
+            <td class="basket__item-count">
+                <div class="spinner"><button class="spinner__button spinner__minus">-</button><input class="spinner__input" type="number" value="0" /><button class="spinner__button spinner__plus">+</button></div>
+            </td>
+            <td class="basket__item-cost"></td>
+            <td class="basket__item-remove"><button class="icon-close" id="deleteProduct">+</button></td>
+        </tr>
+        <tr class="basket__item">
+            <td class="basket__item-image"><img src="img/catalog/pomade-juicy.png" alt="Product" /></td>
+            <td class="basket__item-name"><a href="product.html">Помада для волос «Barber Wild» (Juicy)</a></td>
+            <td class="basket__item-price">2000</td>
+            <td class="basket__item-count">
+                <div class="spinner"><button class="spinner__button spinner__minus">-</button><input class="spinner__input" type="number" value="0" /><button class="spinner__button spinner__plus">+</button></div>
+            </td>
+            <td class="basket__item-cost"> </td>
+            <td class="basket__item-remove"><button class="icon-close" id="deleteProduct">+</button></td>
+        </tr>
+        <tr class="basket__item">
+            <td class="basket__item-image"><img src="img/catalog/shampoo-300.png" alt="Product" /></td>
+            <td class="basket__item-name"><a href="product.html">Шампунь 300ml «Barber Wild» Montana <span>new</span></a></td>
+            <td class="basket__item-price">890</td>
+            <td class="basket__item-count">
+                <div class="spinner"><button class="spinner__button spinner__minus">-</button><input class="spinner__input" type="number" value="0" /><button class="spinner__button spinner__plus">+</button></div>
+            </td>
+            <td class="basket__item-cost"></td>
+            <td class="basket__item-remove"><button class="icon-close" id="deleteProduct">+</button></td>
+        </tr>
+    </table>
+    <div class="calc-block"><button class="calc-block__reset">Reset</button></div>
 </section>
+<!--section.form-testform#form(action="")
+    input(type="text" name="testName" placeholder="Name")
+    input(type="text" name="testLastName" placeholder="Lastname")
+    input(type="text" name="testTel" placeholder="Tel")
+    input(type="text" name="testMail" placeholder="Mail")
+    input(type="text" name="testSex" placeholder="Sex")
+    input(type="text" name="testHome" placeholder="Home")
+    input(type="text" name="testEducation" placeholder="Education")
+    input(type="text" name="testCash" placeholder="Cash")
+    input(type="text" name="testCar" placeholder="Car")
+    input(type="submit" value="send")
+
+ul.form-content-->
 <h1>Some text in footer block</h1>
 <script src="main.js"></script>
 
