@@ -37,11 +37,11 @@ html(lang="en")
                 
                 td.basket__item-count
                     .spinner
-                        button.spinner__button.spinner__minus -
+                        button.spinner__button.spinner__minus(disabled) -
                         input(type="number" value="0").spinner__input
                         button.spinner__button.spinner__plus(type="button") +
                 
-                td.basket__item-cost
+                td.basket__item-cost 0
                 
                 td.basket__item-remove
                     button.icon-close#deleteProduct +
@@ -57,11 +57,11 @@ html(lang="en")
                 
                 td.basket__item-count
                     .spinner
-                        button.spinner__button.spinner__minus -
+                        button.spinner__button.spinner__minus(disabled) -
                         input(type="number" value="0").spinner__input
                         button.spinner__button.spinner__plus +
                 
-                td.basket__item-cost
+                td.basket__item-cost 0
                 
                 td.basket__item-remove
                     button.icon-close#deleteProduct +
@@ -77,11 +77,11 @@ html(lang="en")
                 
                 td.basket__item-count
                     .spinner
-                        button.spinner__button.spinner__minus -
+                        button.spinner__button.spinner__minus(disabled) -
                         input(type="number" value="0").spinner__input
                         button.spinner__button.spinner__plus +
                 
-                td.basket__item-cost 
+                td.basket__item-cost 0 
                 
                 td.basket__item-remove
                     button.icon-close#deleteProduct +
@@ -97,17 +97,20 @@ html(lang="en")
                 
                 td.basket__item-count
                     .spinner
-                        button.spinner__button.spinner__minus -
+                        button.spinner__button.spinner__minus(disabled) -
                         input(type="number" value="0").spinner__input
                         button.spinner__button.spinner__plus +
                 
-                td.basket__item-cost
+                td.basket__item-cost 0
                 
                 td.basket__item-remove
                     button.icon-close#deleteProduct +
 
         .calc-block
             button.calc-block__reset Reset
+
+        .calc-block-res
+            span.calc-block__result 0
     
     //section.form-test
         form#form(action="")
