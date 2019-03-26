@@ -1,7 +1,6 @@
 class Calculator {
     constructor() {
         this.inputs = document.querySelectorAll('input[type="number"]');
-        this.result = document.querySelector('.calc-block__result-numb');
         this.reset = document.querySelector('.calc-block__reset');
         this.items = document.querySelectorAll('.basket__item');
         this.spinnerBtns = document.querySelectorAll('.spinner__button');
@@ -9,14 +8,28 @@ class Calculator {
         this.cost = document.querySelectorAll('.basket__item-cost');
         this.Allsum = 0;
         this.res = 0;
-        this.val;
         this.events();
     }
 
-    summ(el, price, amount_input) {
+    summ(el, price, amount_input, btnMinus, btnPlus) {
         const cost = el.querySelector('.basket__item-cost');
-        let num2 = +amount_input.value;
-        let result = price * num2;
+        if(+amount_input.value > 200 ) {
+            btnPlus.disabled = true;
+            btnMinus.disabled = false;
+            amount_input.value = 200;
+        }
+        if(+amount_input.value < 0) {
+            btnMinus.disabled = true;
+            btnPlus.disabled = false;
+            amount_input.value = 0;
+        }
+        if(+amount_input.value > 0 ) {
+            btnMinus.disabled = false;
+        }
+        
+        let val = +amount_input.value;
+        val = +amount_input.value;
+        let result = price * val;
         cost.textContent = result;
         return result;
     }
@@ -35,7 +48,10 @@ class Calculator {
         const price = +el.querySelector('.basket__item-price').textContent;
         const reset = el.querySelector('.basket__item-remove');
         const amount_input = el.querySelector('.spinner__input');
-        amount_input.addEventListener('input', () => this.summ(el, price, amount_input));
+        const buttonMinus = el.querySelector('.spinner__minus');
+        const buttonPlus = el.querySelector('.spinner__plus');
+
+        amount_input.addEventListener('input', () => this.summ(el, price, amount_input, buttonMinus, buttonPlus));
         reset.addEventListener('click', () => this.delete(el));
     }
 
@@ -82,19 +98,15 @@ class Calculator {
             return;
         }
     }
-
+    
     checkInput(input) {
+        let arr = [];
         const cost = +this.findParent(input, 'basket__item').querySelector('.basket__item-cost').textContent;
-        if(this.val < input.value) {
-            this.res -=cost;
-        }
-        else if (this.val > input.value ) {
-            this.res +=cost;
-        }
-        else {
-            this.res = cost;
-        }
+        this.res+=cost;
         this.allSumm(this.res);
+        let val = input.value;
+        arr.push(val);
+        console.log(arr);
     }
 
     allSumm(el1) {
@@ -113,10 +125,15 @@ class Calculator {
     }
 
     events() {
+        
         this.items.forEach((el) => this.count(el));
+
         this.inputs.forEach((el) => el.addEventListener('blur', () => this.zeroize(el)));
+
         this.spinnerBtns.forEach((spBtn) => spBtn.addEventListener('click', () => this.countSpin(spBtn)));
+
         this.inputs.forEach((input) => input.addEventListener('change', () => this.checkInput(input)));
+
         this.spinnerBtns.forEach((spBtn) => spBtn.addEventListener('click', () => {
             const price = +this.findParent(spBtn, 'basket__item').querySelector('.basket__item-price').textContent;
             if(spBtn.classList.contains('spinner__plus')) {
@@ -127,6 +144,7 @@ class Calculator {
             }
             this.allResult.textContent = this.res;
         }));
+
         this.reset.addEventListener('click', () => this.resetAll());
     }
 }
