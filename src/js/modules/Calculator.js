@@ -6,8 +6,9 @@ class Calculator {
         this.spinnerBtns = document.querySelectorAll('.spinner__button');
         this.allResult = document.querySelector('.calc-block__result');
         this.cost = document.querySelectorAll('.basket__item-cost');
-        this.Allsum = 0;
+        this.arr = [];
         this.res = 0;
+        this.result = 0;
         this.events();
     }
 
@@ -27,6 +28,10 @@ class Calculator {
             btnMinus.disabled = false;
         }
         
+        if(+amount_input.value == 0) {
+            btnMinus.disabled = true;
+        }
+        
         let val = +amount_input.value;
         val = +amount_input.value;
         let result = price * val;
@@ -37,14 +42,19 @@ class Calculator {
     delete(el) {
         const elCost = el.querySelector('.basket__item-cost');
         const elPrice = el.querySelector('.spinner__input');
+        const btnMinus = el.querySelector('.spinner__minus');
         const elCostNum = +elCost.textContent;
         this.res = +this.allResult.textContent - elCostNum
         this.allResult.textContent = this.res;
+        btnMinus.disabled = true;
         elCost.textContent = '0';
         elPrice.value = 0;
+        let index = this.arr.indexOf(el);
+        this.arr.splice(index, 1);
     }
 
     count(el) {
+        console.log(el);
         const price = +el.querySelector('.basket__item-price').textContent;
         const reset = el.querySelector('.basket__item-remove');
         const amount_input = el.querySelector('.spinner__input');
@@ -62,10 +72,15 @@ class Calculator {
 
     countSpin(spBtn) {
         const spinInput = this.findParent(spBtn, 'spinner').querySelector('.spinner__input');
+        
         const cost = this.findParent(spBtn, 'basket__item').querySelector('.basket__item-cost');
+        
         const price = this.findParent(spBtn, 'basket__item').querySelector('.basket__item-price');
+        
         const buttonMinus = this.findParent(spBtn, 'basket__item').querySelector('.spinner__minus');
+        
         const buttonPlus = this.findParent(spBtn, 'basket__item').querySelector('.spinner__plus');
+        
         if(spBtn.classList.contains('spinner__plus')) {
             spinInput.value = parseInt(spinInput.value, 10)+1;
             buttonMinus.disabled = false;
@@ -100,17 +115,14 @@ class Calculator {
     }
     
     checkInput(input) {
-        let arr = [];
-        const cost = +this.findParent(input, 'basket__item').querySelector('.basket__item-cost').textContent;
-        this.res+=cost;
-        this.allSumm(this.res);
-        let val = input.value;
-        arr.push(val);
-        console.log(arr);
-    }
-
-    allSumm(el1) {
-        this.allResult.textContent = el1;
+        this.arr.push(this.findParent(input, 'basket__item').querySelectorAll('.basket__item-cost'));
+        let digits = Array.from(this.arr).map((el) => +el[0].textContent);
+        digits.splice(4);
+        console.log(digits);
+        this.result = digits.reduce((sum, el) => {
+            return sum + el;
+        },0);
+        this.allResult.textContent = this.result;
     }
 
     resetAll() {
@@ -122,6 +134,12 @@ class Calculator {
         });
         this.res = 0;
         this.allResult.textContent = '0';
+        this.spinnerBtns.forEach((btn) => {
+            if(btn.classList.contains('spinner__minus')) {
+                btn.disabled = true;
+            }
+        });
+        this.arr = [];
     }
 
     events() {
@@ -130,19 +148,23 @@ class Calculator {
 
         this.inputs.forEach((el) => el.addEventListener('blur', () => this.zeroize(el)));
 
-        this.spinnerBtns.forEach((spBtn) => spBtn.addEventListener('click', () => this.countSpin(spBtn)));
-
         this.inputs.forEach((input) => input.addEventListener('change', () => this.checkInput(input)));
+        /* this.spinnerBtns.forEach((spBtn) => spBtn.addEventListener('click', () => this.countSpin(spBtn))); */
+
 
         this.spinnerBtns.forEach((spBtn) => spBtn.addEventListener('click', () => {
-            const price = +this.findParent(spBtn, 'basket__item').querySelector('.basket__item-price').textContent;
+            const cost = +this.findParent(spBtn, 'basket__item').querySelector('.basket__item-cost').textContent;
+
+            this.countSpin(spBtn);
+            this.checkInput(spBtn);
+
             if(spBtn.classList.contains('spinner__plus')) {
-                this.res += price;
+                this.res += cost;
             }
             if(spBtn.classList.contains('spinner__minus')) {
-                this.res -= price;
+                this.res -= cost;
             }
-            this.allResult.textContent = this.res;
+            this.allResult.textContent = this.result;
         }));
 
         this.reset.addEventListener('click', () => this.resetAll());
