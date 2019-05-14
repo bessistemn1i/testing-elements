@@ -115,10 +115,19 @@ class Calculator {
     }
     
     checkInput(input) {
-        this.arr.push(this.findParent(input, 'basket__item').querySelectorAll('.basket__item-cost'));
-        let digits = Array.from(this.arr).map((el) => +el[0].textContent);
+        const parents = this.findParent(input, 'basket__item');
+        const itm = +this.findParent(input, 'basket__item').querySelector('.basket__item-cost').textContent;
+        console.log(this.inputs);
+        //let index = this.inputs.indexOf(parent);
+        let inx = this.arr.indexOf(itm);
+        if(inx == -1) {
+            this.arr.push(this.findParent(input, 'basket__item').querySelector('.basket__item-cost'));
+        }
+        console.log(itm);
+        //console.log(index);
+        console.log(inx);
+        let digits = Array.from(this.arr).map((el) => +el.textContent);
         digits.splice(4);
-        console.log(digits);
         this.result = digits.reduce((sum, el) => {
             return sum + el;
         },0);
@@ -142,8 +151,14 @@ class Calculator {
         this.arr = [];
     }
 
+    compose(component, ...args) {
+        const res = args.reduceRight((prevVal,curVal) => prevVal.concat(curVal), component)
+        console.log(res);
+        return res;
+    }
     events() {
-        
+        this.compose('xxx', 'a', 'b', 'c');
+        console.log(this.compose);
         this.items.forEach((el) => this.count(el));
 
         this.inputs.forEach((el) => el.addEventListener('blur', () => this.zeroize(el)));
