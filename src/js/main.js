@@ -1,2 +1,3 @@
-import Calculator from './modules/Calculator';
-const calc = new Calculator();
+import Slider from './modules/Slider';
+
+new Slider();

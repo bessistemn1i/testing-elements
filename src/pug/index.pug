@@ -10,122 +10,18 @@ html(lang="en")
     
     include pug-modules/header.pug
     
-    //section.sum
-        .palete
-            input.input-numb(type="number" min = '0' max="100")
-            input.input-numb.input-numbSecond.input-numbSecond--visually-hidden(type="number" min = '0' max='100')
-        canvas#arrow
-        .errored
-    section.calculator-wrap
-        table.basket__content
-            tbody
-                tr
-                    th.basket__content-title-name(colspan="2") Наименование
-                    th.basket__content-title-price Цена
-                    th.basket__content-title Количество
-                    th.basket__content-title Стоимость
-                    th.basket__content-title
-            
-            tr.basket__item
-                td.basket__item-image
-                    img(src="img/catalog/gel.png", alt="Product")
-                
-                td.basket__item-name
-                    a(href="product.html") Гель для Бритья «Barber Wild» Alaska <span class="basket__new">new</span>
-                
-                td.basket__item-price 1000
-                
-                td.basket__item-count
-                    .spinner
-                        button.spinner__button.spinner__minus(disabled) -
-                        input(type="number" value="0").spinner__input
-                        button.spinner__button.spinner__plus(type="button") +
-                
-                td.basket__item-cost 0
-                
-                td.basket__item-remove
-                    button.icon-close#deleteProduct +
-            
-            tr.basket__item
-                td.basket__item-image
-                    img(src="img/catalog/matt-clay-woodie.png", alt="Product")
-                
-                td.basket__item-name
-                    a(href="product.html") Матирующая глина «Barber Wild» (Woodie) <span>Limited edition</span>
-                
-                td.basket__item-price 1300
-                
-                td.basket__item-count
-                    .spinner
-                        button.spinner__button.spinner__minus(disabled) -
-                        input(type="number" value="0").spinner__input
-                        button.spinner__button.spinner__plus +
-                
-                td.basket__item-cost 0
-                
-                td.basket__item-remove
-                    button.icon-close#deleteProduct +
-            
-            tr.basket__item
-                td.basket__item-image
-                    img(src="img/catalog/pomade-juicy.png", alt="Product")
-                
-                td.basket__item-name
-                    a(href="product.html") Помада для волос «Barber Wild» (Juicy)
-                
-                td.basket__item-price 2000
-                
-                td.basket__item-count
-                    .spinner
-                        button.spinner__button.spinner__minus(disabled) -
-                        input(type="number" value="0").spinner__input
-                        button.spinner__button.spinner__plus +
-                
-                td.basket__item-cost 0 
-                
-                td.basket__item-remove
-                    button.icon-close#deleteProduct +
-            
-            tr.basket__item
-                td.basket__item-image
-                    img(src="img/catalog/shampoo-300.png", alt="Product")
-                
-                td.basket__item-name
-                    a(href="product.html") Шампунь 300ml «Barber Wild» Montana <span>new</span>
-                
-                td.basket__item-price 890
-                
-                td.basket__item-count
-                    .spinner
-                        button.spinner__button.spinner__minus(disabled) -
-                        input(type="number" value="0").spinner__input
-                        button.spinner__button.spinner__plus +
-                
-                td.basket__item-cost 0
-                
-                td.basket__item-remove
-                    button.icon-close#deleteProduct +
+    section.slider
+        .slider__container
+            .slide.slide1 1
+            .slide.slide2 2
+            .slide.slide3 3
+            .slide.slide4 4
+            .slide.slide5 5
+            .slide.slide6 6
+    .slider__nav
+        button(data-path="prev") Prev
+        button(data-path="next") Next
 
-        .calc-block
-            button.calc-block__reset Reset
-
-        .calc-block-res
-            span.calc-block__result 0
-    
-    //section.form-test
-        form#form(action="")
-            input(type="text" name="testName" placeholder="Name")
-            input(type="text" name="testLastName" placeholder="Lastname")
-            input(type="text" name="testTel" placeholder="Tel")
-            input(type="text" name="testMail" placeholder="Mail")
-            input(type="text" name="testSex" placeholder="Sex")
-            input(type="text" name="testHome" placeholder="Home")
-            input(type="text" name="testEducation" placeholder="Education")
-            input(type="text" name="testCash" placeholder="Cash")
-            input(type="text" name="testCar" placeholder="Car")
-            input(type="submit" value="send")
-
-        ul.form-content
     include pug-modules/footer.pug
     script(src="main.js")
     
