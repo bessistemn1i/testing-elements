@@ -385,14 +385,17 @@ body.main-vis {
   margin-right: auto;
   margin-left: auto;
   height: 150px;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 .slide {
+  position: absolute;
   width: 250px;
   height: 150px;
   background-color: #ccc;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease; }
+  -webkit-transition: margin-left 0.25s ease-in-out;
+  transition: margin-left 0.25s ease-in-out;
+  margin-left: 0; }
 
 .sum {
   position: relative;
