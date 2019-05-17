@@ -11,9 +11,9 @@ export default class Slider {
 
     posSlides(arr) {
         arr.map((el, idx) => {
-            const SLIDE_WIDTH = 300;
+            const SLIDE_WIDTH = 400;
             if(idx == arr.length - 1) {
-                el.style.marginLeft = `-300px`;
+                el.style.marginLeft = `-400px`;
                 el.style.display = 'none';
             }
             el.style.marginLeft = `${SLIDE_WIDTH * idx}px`;
@@ -22,8 +22,8 @@ export default class Slider {
     }
 
     posSlidesBackward(arr) {
-        const SLIDE_WIDTH = 300;
-        arr[arr.length - 1].style.marginLeft = `-300px`;
+        const SLIDE_WIDTH = 400;
+        arr[arr.length - 1].style.marginLeft = `-400px`;
         
         arr.map((el, idx) => {
             if(idx !== arr.length - 1) {
@@ -47,7 +47,7 @@ export default class Slider {
         const newSlider = arr.slice(1);
         
         this.sliderContainer.appendChild(newSlider[newSlider.length - 1]);
-        arr[0].style.marginLeft = '-300px';
+        arr[0].style.marginLeft = '-400px';
         arr[arr.length - 1].style.display = 'none';
 
         setTimeout(() => {

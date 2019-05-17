@@ -687,7 +687,7 @@ body.main-vis {
       -webkit-box-flex: 10;
       -ms-flex-positive: 10;
       flex-grow: 10;
-      margin-right: 60px;
+      width: 360px;
       -webkit-transition: margin-left 0.25s ease-out;
       transition: margin-left 0.25s ease-out; } }
 
