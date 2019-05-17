@@ -1,0 +1,119 @@
+.custom-carousel {
+    @include atDesktopS {
+        // positioning
+        position: relative;
+
+        // box model
+        // margin: 0 -40px;
+        // padding: 0 40px;
+        // overflow: hidden;
+    }
+}
+
+.custom-carousel__content {
+    @include atTablet {
+        // box model
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    @include atDesktopS {
+        // positioning
+        position: relative;
+
+        // box model
+        flex-wrap: nowrap;
+
+        // visual
+        // overflow: hidden;
+        transition: margin 0.3s ease-out;
+    }
+}
+
+.custom-carousel__nav {
+    // box model
+    display: none;
+    
+    @include atDesktopS {
+        // positioning
+        position: relative;
+
+        // box model
+        display: block;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 35px;
+
+        // typography
+        text-align: center;
+    }
+
+    @include atDesktopL {
+        // box model
+        width: 1210px;
+    }
+}
+
+.custom-carousel__slide {
+    // positioning
+    position: absolute;
+    
+    @include atDesktopS {
+        // box model
+        flex-basis: 29%;
+        flex-shrink: 0;
+        flex-grow: 10;
+        margin-right: 60px;
+
+        // visual
+        transition: margin-left 0.25s ease-out;
+    }
+}
+
+.custom-carousel__btn {
+    // box model
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px;
+
+    // visual
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    opacity: 0.6;
+    transition: transform 0.25s;
+
+    &:active,
+    &:focus {
+        .custom-carousel__icon {
+            fill: #ec933e;
+        }
+    }
+}
+
+.custom-carousel__icon {
+    // box model
+    height: 32px;
+    fill: $shamua;
+    transition: fill 0.25s ease;
+}
+
+.custom-carousel__btn--prev {
+    &:hover,
+    &:active {
+        // positioning
+        transform: translate(5px) translateY(5px) scale(1.4);
+    }
+}
+
+.custom-carousel__btn--next {
+    &:hover,
+    &:active {
+        // positioning
+        transform: translate(-5px) translateY(5px) scale(1.4);
+    }
+}

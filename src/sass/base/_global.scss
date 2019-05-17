@@ -8,11 +8,6 @@ html {
     box-sizing: border-box;
     
     /* typography */
-    font-size: $baseFontSize;
-
-    @include atMinMobile {
-        font-size: $fontForSmallMobile;
-    }
 
     /* visual */
     overflow-x: hidden;
@@ -30,12 +25,7 @@ body.main-vis {
     /* visual */
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: $baseColor;
     color: #000000;
-    
-    &--index {
-        background-color: $brandColor;
-    }
 }
 
 *,
