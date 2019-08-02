@@ -3,11 +3,15 @@
 
 // normalize
 @import "normalize.css/normalize.css";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 
 // global
 @import "base/vars";
 @import "base/mixins";
 @import "base/global";
+
+// tns slider
+@import "../../node_modules/tiny-slider/src/tiny-slider";
 
 // elements
 @import "modules/slider";
@@ -15,3 +19,5 @@
 @import "modules/sum";
 @import "modules/item";
 @import "modules/custom-carousel";
+@import "modules/best-sellers";
+@import "modules/chart";

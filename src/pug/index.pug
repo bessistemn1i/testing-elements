@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 html(lang="en")
     head
         meta(charset="UTF-8")
@@ -9,97 +9,29 @@ html(lang="en")
     body
     
     include pug-modules/header.pug
+        
+    section.chart
+        canvas#canvas2016
     
-    section.slider
-        .slider__container
-            article.item.custom-carousel__slide
-                a.item__link(href="#")
-                    header.item__header
-                        .item__caption
-                            h2.item__title Мыло<br>для бритья<br><span class="item__title-hang">«Barber&nbsp;Wild»</span>
-                            p.item__name.item__name--juicy juicy
-                        .item__info
-                            p.item__volume 3.5 fl.oz | 100 g.
-                            p.item__price 900&nbsp;<span class="item__currency">руб</span>
-                            p.item__tag limited <br> edition
-                    .item__image
-                        img(src="img/catalog/matt-clay-woodie.png", alt="Мыло для бритья Barber Wild")
-                .item__buttons
-                            a(href="#").button.button--more Купить
-                            a(href="#").button.button--ghost Подробнее
+    section.debounce-test Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, repellat ipsum quaerat tempore deleniti ad amet dicta eum molestiae numquam tenetur atque dolores inventore iste illo unde, fugit labore, odio repellendus hic laboriosam. Pariatur debitis maiores quam esse excepturi voluptatibus eaque consequatur veritatis? In dignissimos illo ullam suscipit cum pariatur dicta, excepturi atque animi repellat perferendis architecto, magni accusamus nam odit delectus ipsam odio optio voluptates repudiandae. Voluptatibus error soluta iure eligendi obcaecati, in accusamus amet quod harum atque distinctio laborum reprehenderit numquam aliquid necessitatibus esse tempore pariatur ullam voluptatum facere sint porro qui! Ad, doloribus similique iste at maiores eos neque beatae odio ducimus. Temporibus tenetur fugit ipsam ipsum eaque eius neque blanditiis molestias! Necessitatibus sapiente tempora quisquam quos nobis dolorem fuga qui! Animi libero quia cupiditate, quaerat quisquam incidunt voluptas doloribus, fugit vitae consequuntur magni aliquid? Repudiandae velit possimus commodi et? Ullam perferendis labore, expedita vitae totam tempore enim quisquam reiciendis natus sapiente repellat quidem nemo libero deserunt doloremque officia illum voluptatibus inventore corrupti eius consequuntur at officiis laborum. Commodi voluptatem, veniam eligendi saepe expedita voluptatum quidem quaerat deserunt aliquam sapiente, dicta iusto sit omnis? Ex tempore officiis deserunt expedita, vitae officia ea consequuntur, repudiandae consectetur harum labore sint debitis quidem a blanditiis dignissimos vero in ullam obcaecati aperiam laborum maiores! Tempora id in voluptate enim reprehenderit labore blanditiis sapiente eveniet ad, tempore vero mollitia iusto ipsa dignissimos quaerat sit dicta! Illo laboriosam quas ad iste aliquam ex distinctio iusto deserunt tempore adipisci molestiae debitis nemo vel accusamus, est natus odit temporibus necessitatibus. Culpa omnis quo ex. Libero ipsa eos vitae quae tempora repudiandae commodi debitis, quidem, deleniti tempore, itaque quos. Iusto quo, mollitia modi dolore corporis quis voluptatibus nulla voluptatem expedita earum pariatur esse vitae veniam impedit adipisci labore recusandae nisi sequi minima nostrum, illo sint, accusantium amet! Impedit, sint dolore. Voluptatem similique voluptate vero distinctio sed? Praesentium sequi et iste quo cumque at voluptate, culpa natus cupiditate maiores beatae corporis illo sed ab deleniti. Provident veritatis blanditiis fugit consequatur minima, tempora omnis, quasi delectus esse reiciendis laboriosam voluptatum ab iure exercitationem libero necessitatibus ullam illum officia incidunt illo. Non pariatur quae recusandae dicta repellendus asperiores illo expedita. Neque odit vero deserunt pariatur iure corporis at enim maiores tempore magnam possimus magni adipisci autem temporibus error, eligendi, eius quia iusto repellat qui incidunt illo quisquam dolor? Incidunt nesciunt autem expedita repellat nulla quo inventore id sint impedit repellendus, suscipit commodi ex repudiandae vitae ducimus voluptatum consectetur nostrum? Perspiciatis esse cumque temporibus provident quod! Ea quisquam autem veniam! Nihil hic debitis nisi tempora, fugiat porro illo, consequuntur, voluptatum laudantium repellat architecto temporibus impedit expedita a aut ullam asperiores sapiente tempore minus ipsum. Corrupti ea ex culpa temporibus quae in aliquid veniam consequatur ab ut. Dolor possimus ipsam omnis, impedit tempora dignissimos accusamus commodi, quidem molestias magni perferendis pariatur quo, soluta maiores quisquam. Iusto modi porro quam aliquid! Culpa quaerat aspernatur amet expedita assumenda! Repellat quasi impedit cupiditate tempora repellendus temporibus fuga sequi sapiente, non, sit pariatur. Sunt, ducimus!
 
-            article.item.custom-carousel__slide
-                a.item__link(href="#")
-                    header.item__header
-                        .item__caption
-                            h2.item__title Мыло<br>для бритья<br><span class="item__title-hang">«Barber&nbsp;Wild»</span>
-                            p.item__name.item__name--juicy juicy
-                        .item__info
-                            p.item__volume 3.5 fl.oz | 100 g.
-                            p.item__price 900&nbsp;<span class="item__currency">руб</span>
-                            p.item__tag limited <br> edition
-                    .item__image
-                        img(src="img/catalog/pomade-juicy.png", alt="Мыло для бритья Barber Wild")
-                
-                .item__buttons
-                    a(href="#").button.button--more Купить
-                    a(href="#").button.button--ghost Подробнее
+section.ajaxTest
+    .ajaxTest-container
 
-            article.item.custom-carousel__slide
-                a.item__link(href="#")
-                    header.item__header
-                        .item__caption
-                            h2.item__title Мыло<br>для бритья<br><span class="item__title-hang">«Barber&nbsp;Wild»</span>
-                            p.item__name.item__name--juicy juicy
-                        .item__info
-                            p.item__volume 3.5 fl.oz | 100 g.
-                            p.item__price 900&nbsp;<span class="item__currency">руб</span>
-                            p.item__tag limited <br> edition
-                    .item__image
-                        img(src="img/catalog/pomade-melone.png", alt="Мыло для бритья Barber Wild")
-                
-                .item__buttons
-                    a(href="#").button.button--more Купить
-                    a(href="#").button.button--ghost Подробнее
-
-            article.item.custom-carousel__slide
-                a.item__link(href="#")
-                    header.item__header
-                        .item__caption
-                            h2.item__title Мыло<br>для бритья<br><span class="item__title-hang">«Barber&nbsp;Wild»</span>
-                            p.item__name.item__name--juicy juicy
-                        .item__info
-                            p.item__volume 3.5 fl.oz | 100 g.
-                            p.item__price 900&nbsp;<span class="item__currency">руб</span>
-                            p.item__tag limited <br> edition
-                    .item__image
-                        img(src="img/catalog/shave-oil.png", alt="Мыло для бритья Barber Wild")
-                
-                .item__buttons
-                    a(href="#").button.button--more Купить
-                    a(href="#").button.button--ghost Подробнее
-
-            article.item.custom-carousel__slide
-                a.item__link(href="#")
-                    header.item__header
-                        .item__caption
-                            h2.item__title Мыло<br>для бритья<br><span class="item__title-hang">«Barber&nbsp;Wild»</span>
-                            p.item__name.item__name--juicy juicy
-                        .item__info
-                            p.item__volume 3.5 fl.oz | 100 g.
-                            p.item__price 900&nbsp;<span class="item__currency">руб</span>
-                            p.item__tag limited <br> edition
-                    .item__image
-                        img(src="img/catalog/shampoo-1000.png", alt="Мыло для бритья Barber Wild")
-                
-                .item__buttons
-                    a(href="#").button.button--more Купить
-                    a(href="#").button.button--ghost Подробнее
-            
-    .slider__nav
-        button(data-path="prev") Prev
-        button(data-path="next") Next
-
+section.tns
+    .tns-slider-Test
+        .tns-slide
+            img(src="https://picsum.photos/id/231/200/300", alt="")
+        .tns-slide
+            img(src="https://picsum.photos/id/232/200/300", alt="")
+        .tns-slide
+            img(src="https://picsum.photos/id/233/200/300", alt="")
+        .tns-slide
+            img(src="https://picsum.photos/id/234/200/300", alt="")
+        .tns-slide
+            img(src="https://picsum.photos/id/235/200/300", alt="")
+        
+    .custom-container
     include pug-modules/footer.pug
     script(src="main.js")
     

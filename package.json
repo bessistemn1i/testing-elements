@@ -40,7 +40,11 @@
         "webpack-stream": "^5.2.1"
     },
     "dependencies": {
+        "@glidejs/glide": "^3.3.0",
+        "chart.js": "^2.8.0",
         "gulp-imagemin": "^3.4.0",
-        "normalize.css": "^8.0.0"
+        "moment": "^2.24.0",
+        "normalize.css": "^8.0.0",
+        "tiny-slider": "^2.9.2"
     }
 }
