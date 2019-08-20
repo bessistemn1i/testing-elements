@@ -5,10 +5,6 @@ class InvestChart {
         this.ctx = document.querySelector("#canvas2017");
         this.addEvents();
     }
-
-    testing() {
-        console.log('click on chart');
-    }
     addEvents() {
         const investChart = new Chart(this.ctx, {
             type: 'line',
@@ -133,6 +129,27 @@ class InvestChart {
               
                         ci.update();
                       },
+                },
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: {
+                        callback: (label, index, labels) => {
+                          console.log(label);
+                          if(label/1000 >= 1000) {
+                            return label/1000000+' млн.'
+                          }
+                          else {
+                            return label/1000+' тыс.';
+                          }
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: '1млн. = 1000'
+                        }
+                      }
+                    }
+                  ]
                 }
             }
         })
