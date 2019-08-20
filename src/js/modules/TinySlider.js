@@ -20,6 +20,7 @@ class TnsSlider {
     }
 
     addEvents() {
+        console.log(document.querySelector('.someTestingBlock'));
         this.addImagesToContainer(this.customContainer);
         const big_tns = new tns({
             loop: false,
@@ -28,6 +29,7 @@ class TnsSlider {
             autoplay: false,
             "navContainer": this.customContainer,
             "navAsThumbnails": true,
+            "controls": false
         });
 
         const little_tns = new tns ({
@@ -36,7 +38,11 @@ class TnsSlider {
             items: this.lengthOfBigSlider,
             mouseDrag: true,
             nav: false,
-            controls: false
+            controls: false,
+            items: 3,
+            controls: true,
+            axis: "vertical",
+            gutter: 20
         });
     }
 }

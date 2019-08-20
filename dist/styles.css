@@ -719,7 +719,7 @@ body.main-vis {
 .item__title {
   margin: 0;
   margin-bottom: 0.15em;
-  color: #222222;
+  color: #131313;
   font-family: "BernierRegular";
   font-size: 1.25em;
   font-weight: 400;
@@ -738,7 +738,7 @@ body.main-vis {
   margin: 0;
   margin-bottom: 0.625em;
   padding: 0 15px;
-  color: #222222;
+  color: #131313;
   font-family: "BernierRegular";
   font-size: 1em;
   line-height: 1.25em;
@@ -788,7 +788,7 @@ body.main-vis {
 
 .item__price {
   margin: 0;
-  color: #222222;
+  color: #131313;
   font-family: "BernierRegular";
   font-size: 1.5em;
   line-height: 1;
@@ -805,7 +805,7 @@ body.main-vis {
 
 .item__tag {
   display: none;
-  color: rgba(34, 34, 34, 0.1);
+  color: rgba(19, 19, 19, 0.1);
   font-family: "BernierRegular";
   font-size: 3em; }
 
@@ -948,3 +948,85 @@ body.main-vis {
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 600px; }
+
+.tns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.tns-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 50%; }
+
+.tns-container-small {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.tns-container-big {
+  -webkit-box-ordinal-group: 14;
+  -ms-flex-order: 13;
+  order: 13;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%; }
+
+.tns-container-small .tns-slide {
+  height: 150px;
+  width: auto; }
+
+.tns-container-small img {
+  display: block;
+  height: 100%;
+  padding: 20px;
+  background-color: rgba(204, 204, 204, 0.2); }
+
+.tns-container-big .tns-slide {
+  width: 100%;
+  height: 450px; }
+
+.tns-container-big img {
+  display: block;
+  width: 100%;
+  padding: 30px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  background-color: rgba(204, 204, 204, 0.2); }
+
+.up-button {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: block;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #d6a354;
+  border-radius: 50%;
+  background-image: url("./img/icons/scroll-up.svg");
+  background-size: 18px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgba(19, 19, 19, 0.5);
+  cursor: pointer;
+  z-index: 100;
+  -webkit-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out; }
+
+.up-button__text {
+  font-size: 0; }

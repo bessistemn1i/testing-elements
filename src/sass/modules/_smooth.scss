@@ -1,0 +1,28 @@
+.up-button {
+    // positioning
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+
+    // box model
+    display: block;
+    width: 48px;
+    height: 48px;
+
+    // visual
+    border: 2px solid $golden;
+    border-radius: 50%;
+    background-image: url('./img/icons/scroll-up.svg');
+    background-size: 18px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgba($dark, 0.5);
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.5s ease-out;
+}
+
+.up-button__text {
+    // typography
+    font-size: 0;
+}
