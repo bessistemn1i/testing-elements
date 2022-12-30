@@ -37,7 +37,7 @@
         "stylelint-order": "^2.0.0",
         "stylelint-scss": "^3.5.2",
         "uglifyjs-webpack-plugin": "^2.1.1",
-        "webpack-stream": "^5.2.1"
+        "webpack-stream": "^7.0.0"
     },
     "dependencies": {
         "@glidejs/glide": "^3.3.0",
